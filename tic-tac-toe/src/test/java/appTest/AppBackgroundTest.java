@@ -5,7 +5,7 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 
 import ticTacToe.gui.MainWindow;
-import ticTacToe.gui.Table;
+import ticTacToe.gui.TableView;
 
 public class AppBackgroundTest {
 	
@@ -24,7 +24,7 @@ public class AppBackgroundTest {
 		URL url = AppBackgroundTest.class.getResource(path + "background.jpg");
 		
 		ImageIcon icon = loadImage(path + "background.jpg");
-		Table table = new Table (50,50,200,200,icon);
+		TableView table = new TableView (50,50,200,200,icon);
 		window.add(table);
 		
 		

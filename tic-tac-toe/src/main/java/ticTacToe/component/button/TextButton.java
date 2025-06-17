@@ -24,6 +24,11 @@ static private int count=1;
 	public TextButton(int x, int y) {
 		super(x, y);
 	}
+	
+	public TextButton(int x, int y, int width, int height, String text) {
+	    super(x, y, width, height);
+	    this.setText(text); 
+	}
 
 	public String getText() {
 		return text;
