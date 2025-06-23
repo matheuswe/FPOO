@@ -10,21 +10,25 @@ import ticTacToe.model.score.ReadOnlyScoreModel;
 
 public class ScoreView extends AbstractComponent{
 
-	  private ReadOnlyScoreModel scoreModel;
-	  private TextButton scoreX;
-	  private TextButton scoreO;
-	  private ImageIcon background;
+	TextButton buttonX = new TextButton();
+	TextButton buttonO = new TextButton();
+	ImageIcon background;
+	ReadOnlyScoreModel scoreModel;
 	  
 	  public ScoreView(int x, int y, int width, int height, ReadOnlyScoreModel scoreModel) {
+		  
 	        super(x, y, width, height);
 	        this.scoreModel = scoreModel;
 	        
-	        int buttonWidth = width / 2 - 10;
-	        int buttonHeight = height - 20;
+	        int btnWidth  = ((width-20) / 2 );
+			int btnHeight = ((height/2) - 10);
+			buttonX.setSize(btnWidth, btnHeight);
+			buttonO.setSize(btnWidth, btnHeight);	
 	        
-	        scoreX = new TextButton(x + 5, y + 10, buttonWidth, buttonHeight, "X: 0");
-	        scoreO = new TextButton(x + buttonWidth + 15, y + 10, buttonWidth, buttonHeight, "O: 0");
-
+			int btnX = x + 5;
+			int btnY  = y + height/2;
+			buttonO.setPosition(btnX, btnY);
+			buttonX.setPosition(btnX + btnWidth + 10, btnY);
 
 	  }
 	  
@@ -34,19 +38,15 @@ public class ScoreView extends AbstractComponent{
 
 	    @Override
 	    public void paint(Graphics g) {
-	    	if (scoreModel == null)
-	    	    throw new RuntimeException("Error: ScoreModel is null at ScoreView!");
 	    	
-	        if (background != null) {
-	            g.drawImage(background.getImage(),
-	            		position.x, position.y,
-	            		width(), height(), null);
-	        }
-
-	        scoreX.setText("X: " + scoreModel.scoreX());
-	        scoreO.setText("O: " + scoreModel.scoreO());
-
-	        scoreX.paint(g);
-	        scoreO.paint(g);
+	    	g.drawImage(background.getImage(),
+				    position.x, position.y,
+				    width(), height(), null);
+		
+		buttonX.setText(""+scoreModel.scoreX());
+		buttonO.setText(""+scoreModel.scoreO());
+		
+		buttonX.paint(g);
+		buttonO.paint(g);
 	    }
 }

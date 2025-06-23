@@ -1,4 +1,4 @@
-package ticTacToe.model.score;
+	package ticTacToe.model.score;
 
 public class SimpleScoreModel implements ReadOnlyScoreModel, ScoreModel  {
 
